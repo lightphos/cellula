@@ -1,0 +1,23 @@
+cell1:
+  image: java:8
+  volumes_from: 
+    - cellx
+  volumes:
+    - ..:/proj
+    - ./scripts:/scripts/
+  entrypoint: /scripts/entrypoint.sh
+
+
+cell2:
+  image: java:8
+  volumes:
+    - ..:/proj
+    - ./scripts:/scripts/
+  entrypoint: /scripts/entrypoint.sh
+
+cell3:
+  image: java:8
+  volumes:
+    - ..:/proj
+    - ./scripts:/scripts/
+  entrypoint: /scripts/entrypoint.sh
