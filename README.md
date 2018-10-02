@@ -67,12 +67,14 @@ cells 1 and 3 now realise they are not the master and stop checking to become ma
 
 What if the master dies. Or indeed any cell dies.  What about a heartbeat by all?
 
-This is only kind of election - what about others?
+This is only one kind of election - what about others?
 
 https://en.wikipedia.org/wiki/Leader_election
 http://www.goodmath.org/blog/2015/01/30/paxos-a-really-beautiful-protocol-for-distributed-consensus/
 https://en.wikipedia.org/wiki/Gossip_protocol
+https://raft.github.io
 
+We need simple leader election - plus something to make sure? - Do we even need a leader?
 
 ## Blueprint
 The blueprint contains what to build - also in the nucleus
