@@ -4,22 +4,23 @@ Inspired by this book
 
 https://books.google.co.uk/books/about/Biomimicry.html?id=4XybQgAACAAJ&redir_esc=y&hl=en
 
+## DNA
+
 Code assembly and deployment that behaves similar to living cells. 
 
 Cell nucleus is all the code (as in DNA).
 
 Cell system that interprets and runs the code, cloning and deploying automatically.
 
-Technology.
+## Technology.
 
 Docker
 
-Vertx (Hazelcast)
+Java/Vertx (Hazelcast)
 
-Java 9 modules
+Prefer Go
 
-
-Concepts.
+## Concepts.
 
 Nucleus 
    Holds the complete instruction set
@@ -28,14 +29,19 @@ Cell
    Interprets the instructions in the nucleus and runs them
 
 Deployer
-   Should be part of the cell?
+   Should be part of the cell/nuclear
    
-Deployer logic...
+Communications/Event Bus
 
-All code to be run are verticles (extends AbstractVerticle) http://vertx.io
+##Deployment logic
 
-Deploy runs as many as there are verticles (translated to cells).
+-- All code to be run are verticles (extends AbstractVerticle) http://vertx.io
 
+All code to do absolutely anything is in the nucleus, including the deployment code
+
+Deployment runs as many cells as needed
+
+##Election
 For N cells, each cell sends N messages (each cell has all N cells code). Each cell receives an announcement from all the cells for the 1st once and checks the timestamp of all (nanosecond time) for the 1st cell. The shortest time becomes the master.
 
 
@@ -60,6 +66,13 @@ cells 1 and 3 now realise they are not the master and stop checking to become ma
 
 
 What if the master dies. Or indeed any cell dies.  What about a heartbeat by all?
+
+## Blueprint
+The blueprint contains what to build - also in the nucleus
+
+## Cell EcoSystem
+The cells run in an ecosystem/environment (virtual machine)
+
 
 
         
