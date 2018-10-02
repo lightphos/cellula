@@ -33,7 +33,7 @@ Deployer
    
 Communications/Event Bus
 
-##Deployment logic
+## Deployment Logic
 
 -- All code to be run are verticles (extends AbstractVerticle) http://vertx.io
 
@@ -41,8 +41,8 @@ All code to do absolutely anything is in the nucleus, including the deployment c
 
 Deployment runs as many cells as needed
 
-##Election
-For N cells, each cell sends N messages (each cell has all N cells code). Each cell receives an announcement from all the cells for the 1st once and checks the timestamp of all (nanosecond time) for the 1st cell. The shortest time becomes the master.
+## Leader Election
+For N cells, each sends N messages (every cell has all N cells code). Each  receives an announcement from all cells for the 1st once and checks the timestamp of all (nanosecond time) for the 1st cell. The shortest time becomes the master.
 
 
 
@@ -66,6 +66,13 @@ cells 1 and 3 now realise they are not the master and stop checking to become ma
 
 
 What if the master dies. Or indeed any cell dies.  What about a heartbeat by all?
+
+This is only kind of election - what about others?
+
+https://en.wikipedia.org/wiki/Leader_election
+http://www.goodmath.org/blog/2015/01/30/paxos-a-really-beautiful-protocol-for-distributed-consensus/
+https://en.wikipedia.org/wiki/Gossip_protocol
+
 
 ## Blueprint
 The blueprint contains what to build - also in the nucleus
