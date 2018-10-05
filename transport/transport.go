@@ -1,7 +1,6 @@
-package main
+package transport
 
 import (
-	"cellula-project/nucleus"
 	"fmt"
 )
 
@@ -20,6 +19,6 @@ func main() {
 	// bus.Subscribe("msg", msg)
 	// bus.Publish("msg", "===test")
 	// bus.Unsubscribe("msg", msg)
-	s := nucleus.Create()
-	fmt.Println("create ", s)
+	// s := nucleus.Create()
+	// fmt.Println("create ", s)
 }
