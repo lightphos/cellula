@@ -1,4 +1,4 @@
-package code
+package main
 
 // Kemcho string
 func Kemcho() string {

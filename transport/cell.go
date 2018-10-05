@@ -6,7 +6,7 @@ import (
 
 // Cell struct
 type Cell struct {
-	n Nucleus
+	n    Nucleus
 	UUID string
 }
 
@@ -18,17 +18,21 @@ func CreateCell() Cell {
 }
 
 // Insert the nucleus into the cell
-func (c *Cell) Insert(n *Nucleus) Cell {
+func (c *Cell) Insert(n *Nucleus) *Cell {
 	c.n = *n
-	return *c
+	return c
 }
 
+// Start cell
+// Ok what shall we do now....
+// First cell -> nucleus -> dna -> code
 func (c *Cell) Start() {
-  nu := c.n
-  d := nu.Extract()
-  for _, cd := range d.Extract() {
-	fmt.Print(" ", cd)
-  }
+	nucleus := c.n
+	dna := nucleus.Extract()
+	for _, c := range dna.Extract() {
+		fmt.Print("run ", c)
+		Run(c)
+	}
 
 	fmt.Println()
 }

@@ -12,9 +12,9 @@ type Nucleus struct {
 // }
 
 // Insert the dna into the nucleus
-func (n *Nucleus) Insert(d *Dna) Nucleus {
+func (n *Nucleus) Insert(d *Dna) *Nucleus {
 	n.dna = *d
-	return *n
+	return n
 }
 
 // Extract dna

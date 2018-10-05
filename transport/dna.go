@@ -11,16 +11,16 @@ type Dna struct {
 // 	return Dna{}
 // }
 
-
 // Add code
-func (d *Dna) Add(codes ...string) Dna {
+func (d *Dna) Add(codes ...string) *Dna {
 
 	for _, code := range codes {
 		d.code = append(d.code, code)
 	}
-	return *d
+	return d
 }
 
+// Extract code
 func (d *Dna) Extract() []string {
-   return d.code
+	return d.code
 }
