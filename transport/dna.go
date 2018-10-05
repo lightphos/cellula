@@ -1,8 +1,10 @@
 package transport
 
+import info "cellula/info"
+
 // Dna struct
 type Dna struct {
-	code []string
+	code []info.Coder
 }
 
 // Create the dna
@@ -12,7 +14,7 @@ type Dna struct {
 // }
 
 // Add code
-func (d *Dna) Add(codes ...string) *Dna {
+func (d *Dna) Add(codes ...info.Coder) *Dna {
 
 	for _, code := range codes {
 		d.code = append(d.code, code)
@@ -21,6 +23,6 @@ func (d *Dna) Add(codes ...string) *Dna {
 }
 
 // Extract code
-func (d *Dna) Extract() []string {
+func (d *Dna) Extract() []info.Coder {
 	return d.code
 }

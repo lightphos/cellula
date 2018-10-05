@@ -11,7 +11,6 @@ type Cell struct {
 }
 
 // CreateCell the cell
-// take all the functions and zip them
 func CreateCell() Cell {
 	var c = Cell{UUID: "1212"}
 	return c
@@ -29,9 +28,10 @@ func (c *Cell) Insert(n *Nucleus) *Cell {
 func (c *Cell) Start() {
 	nucleus := c.n
 	dna := nucleus.Extract()
-	for _, c := range dna.Extract() {
-		fmt.Print("run ", c)
-		Run(c)
+	for n, c := range dna.Extract() {
+		fmt.Print(n)
+		s := c.Code()
+		fmt.Println(s)
 	}
 
 	fmt.Println()

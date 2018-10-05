@@ -44,6 +44,3 @@ Perhaps also the blueprint...
 
 ### Blueprint
 Master code directs all things within the nucleus
-
-
-

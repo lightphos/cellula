@@ -1,18 +1,22 @@
 package transport
 
-import (
-	"fmt"
-	"os/exec"
-)
+import "fmt"
+import cp "cellula/info"
 
 // Run code
 func Run(code string) {
 	fmt.Println("Running  ", code)
-	o, e := exec.Command("ls").Output()
-	fmt.Println("done ", o, e)
-	if e != nil {
-		fmt.Println(string(o))
-	} else {
-		fmt.Println("", e)
-	}
+
+	cl := cp.Hello{}
+
+	s := cp.Coder(cl).Code()
+	fmt.Println("Call ", s)
+
+	//	o, e := exec.Command("go", "run", "code/"+code+".go").Output()
+	// //	fmt.Println("done ", string(o), e)
+	// if e != nil {
+	// 	fmt.Println("", e)
+	// } else {
+	// 	fmt.Println("", string(o))
+	// }
 }
