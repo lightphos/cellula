@@ -48,3 +48,15 @@ Perhaps also the blueprint...
 ### Blueprint
 
 Master code directs all things within the nucleus
+
+
+
+## Go/Docker
+Add GOPATH=..../
+eg export GOPATH=/Volumes/Data/actualcode-software/
+get docker.io --> not the best way but...
+go get -d docker.io/go-docker
+see https://github.com/docker/go-docker#dependency-management-tool-is-required
+
+the code needs to sit in $GOPATH/src
+

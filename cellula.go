@@ -17,4 +17,6 @@ func main() {
 	c.Insert(&n)
 	c.Start()
 
+	b.Run()
+
 }

@@ -1,16 +1,20 @@
 package blueprint
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"os/exec"
 	"strings"
+
+	"docker.io/go-docker/api/types"
 )
 
-func main() {
-	fns, err := exec.Command("ls", "../functions/*.go").Output()
+// Run me
+func Run() {
+	fns, err := exec.Command("ls").Output()
 	if err != nil {
-		log.Fatal("--->", err)
+		log.Fatal(":--->", err)
 	}
 
 	s := string(fns)
@@ -19,9 +23,23 @@ func main() {
 		fmt.Println("--> " + fn)
 	}
 
-	output, err := exec.Command("go", "run", "../transport/transport.go").Output()
+	// output, err := exec.Command("go", "run", "../cellula.go").Output()
+	// if err != nil {
+	// 	log.Fatal("--->", err)
+	// }
+	// fmt.Printf("%s\n", output)
+
+	cli, err := docker.NewEnvClient()
 	if err != nil {
-		log.Fatal("--->", err)
+		panic(err)
 	}
-	fmt.Printf("%s\n", output)
+
+	containers, err := cli.ContainerList(context.Background(), types.ContainerListOptions{})
+	if err != nil {
+		panic(err)
+	}
+
+	for _, container := range containers {
+		fmt.Printf("%s %s\n", container.ID[:10], container.Image)
+	}
 }
